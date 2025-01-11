@@ -17,7 +17,7 @@ import axios from "axios";
 export const getMenus = (id) => async(dispatch) => {
     try{
         dispatch({type: GET_MENU_REQUEST});
-        const response = await axios.get(`/api/v1/eats/stores/${id}/menus`) 
+        const response = await axios.get(`https://food-order-web-app-backend.onrender.com/api/v1/eats/stores/${id}/menus`) 
             // console.log(response)
             // console.log(response.data.data[0].menu)
 

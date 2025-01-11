@@ -22,7 +22,7 @@ export const getRestaurants = ()=>{
                 dispatch({type: ALL_RESTAURANTS_REQUESTS})
 
             //to fetch data
-                let link = `/api/v1/eats/stores`
+                let link = `https://food-order-web-app-backend.onrender.com/api/v1/eats/stores`
                                 /* 
                                     //link contains estrnlDB data in JSON format    
                                         {

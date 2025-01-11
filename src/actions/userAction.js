@@ -58,7 +58,7 @@ export const login = (email, password) => async(dispatch) => {
 
         //axios.post = to send data
         const {data} = await axios.post(
-            `/api/v1/users/login`,
+            `https://food-order-web-app-backend.onrender.com/api/v1/users/login`,
             {email, password},
             config
         )
@@ -99,7 +99,7 @@ export const register = (userData) => async(dispatch) => {
         }
 
         const {data} = await axios.post(
-            `/api/v1/users/signup`,
+            `https://food-order-web-app-backend.onrender.com/api/v1/users/signup`,
             userData,
             config
         )
@@ -138,7 +138,7 @@ export const loadUser = () => async(dispatch) => {
     try{
         dispatch({type: LOAD_USER_REQUEST})
 
-        const {data} = await axios.get(`/api/v1/users/me`)
+        const {data} = await axios.get(`https://food-order-web-app-backend.onrender.com/api/v1/users/me`)
 
         dispatch({
             type: LOAD_USER_SUCCESS,
@@ -162,7 +162,7 @@ export const loadUser = () => async(dispatch) => {
 /* LOGOUT */
 export const logout = () => async(dispatch) => {
     try{
-        await axios.get(`/api/v1/users/logout`)
+        await axios.get(`https://food-order-web-app-backend.onrender.com/api/v1/users/logout`)
 
         dispatch({
             type: LOGOUT_SUCCESS
@@ -192,7 +192,7 @@ export const updateProfile = (userData) => async(dispatch) => {
             }
         }
         const {data} = await axios.put(         //using PUT to update data,  instead of PATCH why?
-            `/api/v1/users/me/update`,
+            `https://food-order-web-app-backend.onrender.com/api/v1/users/me/update`,
             userData,
             config
         )
@@ -233,7 +233,7 @@ export const updatePassword = (passwords) => async(dispatch) => {
         }
 
         const {data} = await axios.put(
-            "/api/v1/users/passwords/update",
+            "https://food-order-web-app-backend.onrender.com/api/v1/users/passwords/update",
             passwords,
             config
         )
@@ -265,7 +265,7 @@ export const forgotPassword = (email) => async(dispatch) => {
         }
 
         const {data} = await axios.post(
-            "/api/v1/users/forgetPassword",
+            "https://food-order-web-app-backend.onrender.com/api/v1/users/forgetPassword",
             email,
             config,
         )
@@ -298,7 +298,7 @@ export const resetPassword = (token, passwords) => async(dispatch) => {
             }
         }
         const {data} = await axios.patch(
-            `/api/v1/users/resetPassword/${token}`,
+            `https://food-order-web-app-backend.onrender.com/api/v1/users/resetPassword/${token}`,
             passwords,
             config,
         )

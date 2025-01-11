@@ -4,7 +4,7 @@ import axios from "axios"
 
 export const fetchCartItems = (alert) => async(dispatch) => {
     try {
-        const response = await axios.get(`/api/v1/eats/cart/get-cart`)
+        const response = await axios.get(`https://food-order-web-app-backend.onrender.com/api/v1/eats/cart/get-cart`)
         dispatch({
             type: FETCH_CART,
             payload: response.data.data,
@@ -38,7 +38,7 @@ export const addItemToCart = (foodItemId, restaurant, quantity, alert) => async(
                             adds extra security level
             */
 
-        const response = await axios.post(`/api/v1/eats/cart/add-to-cart`, {
+        const response = await axios.post(`https://food-order-web-app-backend.onrender.com/api/v1/eats/cart/add-to-cart`, {
             userId: user._id,                       //diff user diff cart
             foodItemId,                             //diff foodItem diff id
             restaurantId: restaurant,
@@ -74,7 +74,7 @@ export const updateCartQuantity = (foodItemId, quantity, alert) => async(dispatc
         }
 
         
-        const response = await axios.post(`/api/v1/eats/cart/update-cart-item`, {
+        const response = await axios.post(`https://food-order-web-app-backend.onrender.com/api/v1/eats/cart/update-cart-item`, {
             userId: user._id,
             foodItemId: foodItemId,
             quantity
@@ -103,7 +103,7 @@ export const removeItemFromCart = (foodItemId, alert) => async(dispatch, getStat
             foodItemId = foodItemId._id
         }
 
-        const response = await axios.delete(`/api/v1/eats/cart/delete-cart-item`,
+        const response = await axios.delete(`https://food-order-web-app-backend.onrender.com/api/v1/eats/cart/delete-cart-item`,
             {
                 data: {userId: user._id, foodItemId}
             }

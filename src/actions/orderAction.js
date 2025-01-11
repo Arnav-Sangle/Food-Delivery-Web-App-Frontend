@@ -16,7 +16,7 @@ export const createOrder = (session_id) => async(dispatch) => {
         }
 
         const {data} = await axios.post(
-            "/api/v1/eats/orders/new",
+            "https://food-order-web-app-backend.onrender.com/api/v1/eats/orders/new",
             {session_id},   
             config,
         )
@@ -50,7 +50,7 @@ export const payment = (items, restaurant) => async(dispatch) => {
         }
         
         const {data} = await axios.post(
-            "/api/v1/payment/process",
+            "https://food-order-web-app-backend.onrender.com/api/v1/payment/process",
             {items, restaurant},
             config,
         )
@@ -87,7 +87,7 @@ export const myOrders = () => async(dispatch) => {
             type: MY_ORDER_REQUEST
         })
 
-        const {data} = await axios.get("/api/v1/eats/orders/me/myOrders")
+        const {data} = await axios.get("https://food-order-web-app-backend.onrender.com/api/v1/eats/orders/me/myOrders")
         dispatch({
             type:   MY_ORDER_SUCCESS,
             payload: data.orders,
@@ -110,7 +110,7 @@ export const getOrderDetails = (id) => async(dispatch) => {
             type: ORDER_DETAILS_REQUEST
         })
 
-        const {data} = await axios.get(`/api/v1/eats/orders/${id}`)
+        const {data} = await axios.get(`https://food-order-web-app-backend.onrender.com/api/v1/eats/orders/${id}`)
         
         dispatch({
             type: ORDER_DETAILS_SUCCESS,
